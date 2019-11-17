@@ -6,14 +6,15 @@
 class Countdown extends HTMLElement {
     constructor() {
         super();
-
+        this.completed = false;
+       
+        
         const template = document.createElement('template');
         template.innerHTML = this.render();
 
         const shadowRoot = this.attachShadow({ mode: 'open' });
         shadowRoot.appendChild(template.content.cloneNode(true));
-
-        this.completed = false;
+        
         this.days = this.shadowRoot.getElementById('days');
         this.hours = this.shadowRoot.getElementById('hours');
         this.minutes = this.shadowRoot.getElementById('minutes');
@@ -27,8 +28,7 @@ class Countdown extends HTMLElement {
         if (Math.sign(milliseconds) < 1) {
             this.completed = true;
             clearInterval(this.interval);
-            this.render();
-
+            this.shadowRoot.innerHTML = this.render();
             return;
         }
 
@@ -44,7 +44,6 @@ class Countdown extends HTMLElement {
     }
 
     render() {
-        console.log(this.completed);
         return `
             <style>
                 :host {
