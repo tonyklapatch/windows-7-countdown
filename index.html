@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Windows 7 End of Life Countdown Timer</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Public+Sans&display=swap" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 16px;
+                padding: 1em;
+                font-family: 'Public Sans', sans-serif;
+            }
+
+            h1 {
+                font-size: 4em;
+                text-align: center;
+            }
+
+            .completed {
+                font-size: 2em;
+            }
+
+            @media all and (max-width: 600px) {
+                h1 {
+                    font-size: 2.5em;
+                }
+
+                .completed {
+                    font-size: 1.2em;
+                }
+            }
+        </style>
+
+        <script src="countdown.js"></script>
+    </head>
+
+    <body>
+        <h1>Windows 7 End of Life Countdown</h1>
+
+        <countdown-timer date="2019-01-14">
+            <p class="completed" slot="completed">Windows 7 is now end of life!</p>
+        </countdown-timer>
+    </body>
+</html>
